@@ -29,7 +29,10 @@
 //  3. This notice may not be removed or altered from any source distribution.
 //
 
+#if !os(iOS)
 import AppKit
+#endif
+
 import CoreGraphics
 
 public extension NSImage {
