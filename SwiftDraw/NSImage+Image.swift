@@ -31,7 +31,7 @@
 
 #if !os(iOS)
 import AppKit
-#endif
+
 
 import CoreGraphics
 
@@ -112,3 +112,5 @@ public extension Image {
     return bitmap.representation(using: .jpeg, properties: [NSBitmapImageRep.PropertyKey.compressionFactor: quality])
   }
 }
+
+#endif
