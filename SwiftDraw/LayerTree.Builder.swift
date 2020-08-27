@@ -181,7 +181,7 @@ extension LayerTree.Builder {
       
       //Crashes whem element is nil
       guard let gradient = makeGradient(for: element) else {
-        return
+        return LayerTree.FillAttributes(color: fill, rule: state.fillRule)
       }
         
       return LayerTree.FillAttributes(gradient: gradient, rule: state.fillRule, opacity: state.fillOpacity)
