@@ -178,7 +178,12 @@ extension LayerTree.Builder {
       return LayerTree.FillAttributes(pattern: pattern, rule: state.fillRule, opacity: state.fillOpacity)
     } else if case .url(let gradientId) = state.fill,
       let element = svg.defs.linearGradients.first(where: { $0.id == gradientId.fragment }) {
-      let gradient = makeGradient(for: element)!
+      
+      //Crashes whem element is nil
+      guard let gradient = makeGradient(for: element) else {
+        return
+      }
+        
       return LayerTree.FillAttributes(gradient: gradient, rule: state.fillRule, opacity: state.fillOpacity)
     } else {
       return LayerTree.FillAttributes(color: fill, rule: state.fillRule)
